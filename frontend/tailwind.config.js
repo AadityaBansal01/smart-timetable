@@ -3,6 +3,7 @@ module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}", // React files
   ],
+  darkMode: 'class', // Enable class-based dark mode
   theme: {
     extend: {},
   },

@@ -12,7 +12,7 @@ function Home() {
       }}
     >
       {/* Overlay */}
-      <div className="bg-black bg-opacity-80 p-10 rounded-lg shadow-lg">
+      <div className="bg-black bg-opacity-80 dark:bg-gray-900 dark:bg-opacity-90 p-10 rounded-lg shadow-lg">
         {/* Logo / Title */}
         <h1 className="text-4xl font-bold mb-4 text-white drop-shadow-lg">
           📅 Smart Timetable Generator
