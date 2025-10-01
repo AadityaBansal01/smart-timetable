@@ -64,10 +64,10 @@ function Register() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-2xl shadow-lg w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">📅 Smart Timetable Generator</h1>
-        <h2 className="text-xl font-semibold mb-4 text-center">Register</h2>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg w-full max-w-md">
+        <h1 className="text-2xl font-bold mb-4 text-center text-gray-900 dark:text-white">📅 Smart Timetable Generator</h1>
+        <h2 className="text-xl font-semibold mb-4 text-center text-gray-900 dark:text-white">Register</h2>
 
         {error && <p className="text-red-500 text-sm mb-2">{error}</p>}
         {success && <p className="text-green-600 text-sm mb-2">{success}</p>}
@@ -79,7 +79,7 @@ function Register() {
             placeholder="Username"
             value={formData.username}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border dark:border-gray-600 p-2 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
           />
           <input
             type="email"
@@ -87,7 +87,7 @@ function Register() {
             placeholder="Email Address"
             value={formData.email}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border dark:border-gray-600 p-2 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
           />
           <input
             type="password"
@@ -95,7 +95,7 @@ function Register() {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border dark:border-gray-600 p-2 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
           />
           <input
             type="password"
@@ -103,11 +103,11 @@ function Register() {
             placeholder="Confirm Password"
             value={formData.confirmPassword}
             onChange={handleChange}
-            className="w-full border p-2 rounded"
+            className="w-full border dark:border-gray-600 p-2 rounded bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400"
           />
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+            className="w-full bg-blue-600 dark:bg-blue-700 text-white p-2 rounded hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors"
           >
             Sign Up
           </button>
