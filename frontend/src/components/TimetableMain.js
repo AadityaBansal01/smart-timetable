@@ -1,5 +1,6 @@
 // src/components/TimetableMain.js
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
 import ClassroomForm from "./ClassroomForm";
 import TeacherForm from "./TeacherForm";
 import SubjectForm from "./SubjectForm";
@@ -164,7 +165,7 @@ function TimetableMain() {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`
         },
         body: JSON.stringify({
           name: selectedTimetableName,
@@ -188,9 +189,14 @@ function TimetableMain() {
     const id = selectedTimetableId;
     const timer = setTimeout(async () => {
       try {
-        await persistTimetable();
+        const res = await persistTimetable();
+        if (res && res.ok) {
+          toast.success("Saved!");
+        } else {
+          toast.error("Error saving, please try again");
+        }
       } catch (err) {
-        /* swallow: already logged */
+        toast.error("Error saving, please try again");
       }
     }, 800); // short debounce to avoid too many requests
     return () => clearTimeout(timer);
@@ -396,26 +402,23 @@ function TimetableMain() {
               await fetchTimetableList();
               return;
             }
-            setSaveStatus("Saving...");
+            toast.info("Saving...");
             try {
               const res = await persistTimetable();
               if (res && res.ok) {
-                setSaveStatus("Saved!");
-                setTimeout(() => setSaveStatus(""), 2000);
+                toast.success("Saved!");
                 await fetchTimetableList();
               } else {
-                setSaveStatus("Error saving timetable");
+                toast.error("Error saving timetable");
               }
             } catch (err) {
-              setSaveStatus("Error saving timetable");
+              toast.error("Error saving timetable");
             }
           }}
           className="bg-green-500 text-white px-4 py-2 rounded ml-2"
         >
           Save Timetable
         </button>
-
-        {saveStatus && <p className="text-sm mt-2 text-gray-700">{saveStatus}</p>}
       </div>
     </div>
   );
